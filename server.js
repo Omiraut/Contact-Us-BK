@@ -4,9 +4,11 @@ const express = require("express");
 const app = express();
 const db = require("./models");
 port = 3002;
+const cors = require("cors");
+const corsOptions = require("./CORS/corsOption");
 const router = require("./routes/router");
 app.use(express.json());
-
+app.use(cors(corsOptions));
 app.get("/", (req, res) => {
   res.send("OK");
 });
